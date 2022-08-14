@@ -1,0 +1,86 @@
+
+.c-todo {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: #f6fafd;
+    color: #004170;
+}
+
+.c-view-state {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.c-state-item {
+    border: 1px solid #000;
+    /* border-radius: 10px; */
+    text-align: center;
+    background: #eceeef;
+    cursor: pointer;
+    color: #374047;
+}
+
+.c-state-item.active {
+    background: #374047;
+    color: #f9f9fa;
+}
+
+.c-todo-rayout {
+    padding: 10px;
+}
+
+.c-todo-list {
+    padding: 10px 0px 10px 0px;
+    border-left: 1px solid #374047;
+    border-right: 1px solid #374047;
+    border-bottom: 1px solid #374047;
+}
+
+.c-todo-item {
+    display: grid;
+    grid-template-columns: 30px 1fr 50px;
+    margin: 0px 10px 3px 10px;
+    height: 30px;
+    border: 1px solid #374047;
+    cursor: pointer;
+}
+
+.c-todo-item.checked {    
+    background: #adb4b9;
+}
+
+.c-todo-item.add {
+    border: none;
+    grid-template-columns: 1fr 50px;
+    margin: 0px 10px 3px 10px;
+    cursor: initial;
+}
+
+.c-todo-check {
+    font-size: 20px;
+    padding-left: 3px;
+}
+
+.c-todo-check.add {
+    padding-top: 5px;
+}
+
+.c-todo-title {
+    padding-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.c-todo-button {
+    text-align: center;
+    vertical-align: center;
+    padding: 4px;
+    cursor: pointer;
+    background: #2d8fd5;
+    color: #f6fafd;
+}
+
+.c-todo-button.del {
+    background: #d2202f;
+}

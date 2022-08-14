@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import styles from './custom.css';
 class TodoItem {
     constructor(title, done = false) {
         this.title = title;
@@ -47,37 +48,30 @@ export class CustomTodo extends React.Component {
     render() {
         const { input, todos, select } = this.state;
         const stateSelectC = TODO_STATES.map(state =>
-            <div className={state === select ? "c-state-item active" : "c-state-item"} onClick={this.selectHandle.bind(this, state)} key={state}>{state}</div>)
+            <div className={state === select ? styles["c-state-item"] + " " + styles["active"] : styles["c-state-item"]} onClick={this.selectHandle.bind(this, state)} key={state}>{state}</div>)
         return (
-            <div className="c-todo">
-                <div className='c-todo-rayout'>
+            <div className={styles["c-todo"]}>
+                <div className={styles['c-todo-rayout']}>
                     <h2>todo</h2>
-                    <div className='c-view-state'>
+                    <div className={styles['c-view-state']}>
                         {stateSelectC}
                     </div>
-                    {/* <ol>{
-                        todos.map((todo, index) => [todo, index]).filter(([todo, index]) => select == "done" ? todo.done : select == "yet" ? !todo.done : true).
-                            map(([todo, index]) => <li key={"key_" + index}>
-                                <input type="checkbox" checked={todo.done} onChange={this.checkedHandle.bind(this, index)} />
-                                {todo.title}
-                                <button onClick={this.delHandle.bind(this, todo)}>del</button>
-                            </li>)
-                    }</ol> */}
-                    <div className='c-todo-list'>
+                    <div className={styles['c-todo-list']}>
+                        <div className={styles['c-todo-item'] + " " + styles['add']}>
+                            <input type='text' value={input} onChange={this.inputHandle.bind(this)} />
+                            <div className={styles['c-todo-button']} onClick={this.addHandle.bind(this)}>add</div>
+                        </div>
                         {
                             todos.filter(todo => select === "ALL" || (select === "DONE" && todo.done) || (select === "YET" && !todo.done)
                             ).map((todo, index) =>
-                                <div key={"todo-" + index} className={todo.done ? 'c-todo-item checked' : 'c-todo-item'}>
-                                    <div className='c-todo-check' onClick={this.checkedHandle.bind(this, todo)}>{todo.done ? "☑︎" : "▫︎"}</div>
-                                    <div className='c-todo-title' onClick={this.checkedHandle.bind(this, todo)}>{todo.title}</div>
-                                    <div className='c-todo-button del' onClick={this.delHandle.bind(this, todo)}>del</div>
+                                <div key={"todo-" + index} className={todo.done ? styles['c-todo-item'] + ' '  + styles['checked'] : styles['c-todo-item']}>
+                                    <div className={styles['c-todo-check']} onClick={this.checkedHandle.bind(this, todo)}>{todo.done ? "☑︎" : "▫︎"}</div>
+                                    <div className={styles['c-todo-title']} onClick={this.checkedHandle.bind(this, todo)}>{todo.title}</div>
+                                    <div className={styles['c-todo-button'] + " " + styles['del']} onClick={this.delHandle.bind(this, todo)}>del</div>
                                 </div>
                             )
                         }
-                        <div className='c-todo-item add'>
-                        <input type='text' value={input} onChange={this.inputHandle.bind(this)} />
-                        <div className='c-todo-button' onClick={this.addHandle.bind(this)}>add</div>
-                    </div>
+
                     </div>
                 </div>
             </div>

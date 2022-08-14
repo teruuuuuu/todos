@@ -1,0 +1,16 @@
+
+.tile-rayout {
+    /* background-color: rgba(192, 192, 192, 0.7); */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.tile-item {
+    height: 700px;
+    margin: 3px;
+    padding: 0px;
+    /* display: grid; */
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, 0.5);
+    overflow: scroll;
+}

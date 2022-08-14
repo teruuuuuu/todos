@@ -6,8 +6,7 @@ import { TileRayout } from './rayout';
 import { SimpleTodo} from './Todo/SimpleTodo';
 import { CustomTodo} from './Todo/CustomTodo';
 
-import "../main.css";
-
+import "./index.css";
 
 class Root extends React.Component {
     constructor(props) {
